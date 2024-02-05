@@ -17,8 +17,10 @@ router.get('/', function(req, res, next) {
 
 });
 
-router.get('/Weather', async (req, res, next) => {
+router.get('/weather', async (req, res, next) => {
 
+  
+  //http://api.openweathermap.org/data/2.5/forecast?id=524901&appid=3f79d5e8a7087c6ebcec50ee9c2ce993
   try {
   const options = {
       method: 'GET', 
