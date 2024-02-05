@@ -8,7 +8,10 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 var app = express();
+const mongoose = require('mongoose');
 
+mongoose.connect('mongodb+srv://cluster0.fq5n7fj.mongodb.net/')
+  .then(() => console.log('Connected!'));
 
 require('dotenv').config()
 console.log(process.env)
