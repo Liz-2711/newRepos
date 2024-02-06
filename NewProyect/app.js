@@ -4,6 +4,22 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+const express = require('express');
+const mongoose = require('mongoose');
+
+const libraryRoutes = require('./routes/libros_routes');
+const estantesRoutes = require('./routes/estantes_routes');
+
+
+
+// Set up MongoDB connection
+mongoose.connect('mongodb://localhost:27017/yourdatabase', { useNewUrlParser: true, useUnifiedTopology: true });
+
+// Use the routes
+app.use('/library', libraryRoutes);
+app.use('/estantes', estantesRoutes);
+
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
@@ -34,6 +50,7 @@ app.use(function(req, res, next) {
   next(createError(404));
 });
 
+
 // error handler
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development
@@ -44,5 +61,9 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+
+
+
 
 module.exports = app;
