@@ -7,6 +7,6 @@ const estantesSchema = new mongoose.Schema({
   edicion: String,
 });
 
-const Estantes = mongoose.model('Estantes', estantesSchema);
+const Estantes = mongoose.model('estantes', estantesSchema);
 
 module.exports = Estantes;

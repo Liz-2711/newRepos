@@ -1,10 +1,17 @@
 const express = require('express');
 const router = express.Router();
-const libraryController = require('../controllers/libros_controller');
+const librosController = require('../controllers/libros_controller');
 
-router.post('/', libraryController.createBook);
-router.get('/', libraryController.getAllBooks);
-router.patch('/:id', libraryController.updateBook);
-router.delete('/:id', libraryController.deleteBook);
+// Create a new book in the library
+router.post('/', librosController.createLibro);
+
+// Get all books in the library
+router.get('/', librosController.getAllLibros);
+
+// Update a book in the library by ID
+router.patch('/', librosController.updateLibro);
+
+// Delete a book from the library by ID
+router.delete('/', librosController.deleteLibro);
 
 module.exports = router;
