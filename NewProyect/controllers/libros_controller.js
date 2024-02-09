@@ -47,8 +47,25 @@ async function updateLibro(req, res) {
   }
 }
 
+async function getlibroById(res, req){
 
+  try{
+    const {id } =req.body;
 
+    const libro = await Library.find( id );
+    
+      if(libro.length > 0){
+      res.status(200).json(libro);
+
+      }else
+      return res.status(404).json({ error: 'Libro not found' }); 
+  
+}
+ catch (error) {
+  console.log(error.message);
+   res.status(500).json({ message: error.message });
+}
+}
 
 async function deleteLibro(req, res) {
   try {
@@ -70,6 +87,7 @@ async function deleteLibro(req, res) {
    getAllLibros,
    updateLibro,
    deleteLibro,
+   getlibroById
  };
  
 

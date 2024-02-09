@@ -15,6 +15,7 @@ const libroSchema = new mongoose.Schema({
   genero: String,
   comentarios: String,
   edicion: String,
+  posicion: String,
   copias: String
 
 
