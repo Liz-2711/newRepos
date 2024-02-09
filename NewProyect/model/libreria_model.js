@@ -2,15 +2,22 @@ const mongoose = require('mongoose');
 
 const libroSchema = new mongoose.Schema({
   id: String,
-  nombre: String,
+  nombre: {type: String, required: true,
+  },
   author: String,
   num_pag: Number,
   fecha_public: Date,
   editorial: String,
-  ISBN: String,
+  ISBN: {
+    type: String,
+    unique: true,
+  },
   genero: String,
   comentarios: String,
   edicion: String,
+  copias: String
+
+
 });
 
 const Libro = mongoose.model('libros', libroSchema);

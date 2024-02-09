@@ -14,4 +14,6 @@ router.patch('/', estantesController.updateEstante);
 // Delete a shelf from the estantes by ID
 router.delete('/', estantesController.deleteEstante);
 
+router.get('/cat', estantesController.getEstanteWithLibros);
+
 module.exports = router;
